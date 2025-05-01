@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables de colores */
+:root {
+    --negro: #0e0e0e;
+    --dorado: #d4af37;
+    --gris-claro: #eeeeee;
+    --gris-oscuro: #333333;
+    --verde: #028a0f;
+    --rojo: #60100b;
+}
+
+/* Body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--gris-claro);
+    color: var(--gris-oscuro);
+    line-height: 1.6;
+}
+
+/* Contenedor */
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Header */
+.header {
+
+    background-color: var(--negro);
+    color: var(--dorado);
+    position: relative;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.menu a {
+    font-size: 28px;
+    color: var(--dorado);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Navbar */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar ul li a {
+    color: var(--gris-claro);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: var(--dorado);
+}
+
+/* Header contenido */
+.header-content {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.header-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.header-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: var(--gris-claro);
+}
+
+
+
+/* Footer */
+.footer {
+    background-color: var(--negro);
+    padding: 60px 0 30px;
+    text-align: center;
+    color: var(--gris-claro);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-logo a {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--dorado);
+    text-decoration: none;
+}
+
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.footer-nav ul li a {
+    color: var(--gris-claro);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.footer-nav ul li a:hover {
+    color: var(--dorado);
+}
+
+.footer-copy {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888888; /* gris más claro */
+}
+
+
+
+/* Sección Admin */
+.admin-panel {
+    background-color: var(--gris-claro);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.admin-panel h2 {
+    font-size: 36px;
+    color: var(--negro);
+    margin-bottom: 40px;
+}
+
+/* Tabla de Propiedades */
+.admin-table {
+    overflow-x: auto;
+}
+
+.admin-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--gris-oscuro);
+    text-align: center;
+    color: var(--negro);
+}
+
+.admin-table th {
+    background-color: var(--negro);
+    color: var(--dorado);
+    font-weight: 600;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.btn-1 {
+    display: inline-block;
+    padding: 14px 40px;
+    background: linear-gradient(135deg, var(--dorado) 0%, #b28f4e 100%);
+    color: var(--negro);
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.4s ease;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-1:hover {
+    background: var(--negro);
+    color: var(--dorado);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Botones Editar y Eliminar */
+.btn-edit,
+.btn-delete {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.btn-edit {
+    background-color: var(--verde);
+    color: var(--gris-claro);
+}
+
+.btn-delete {
+    background-color: var(--rojo);
+    color: var(--gris-claro);
+}
+
+.btn-edit:hover {
+    filter: brightness(1.75);
+}
+
+.btn-delete:hover {
+    filter: brightness(1.75);
+}
+
+/* Botón principal Agregar */
+.admin-actions {
+    margin-top: 50px;
+}
+
+.admin-actions .btn-1 {
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+
+/* Sección Ingresar Propiedad Admin */
+.admin-ingresar-propiedad {
+    background-color: var(--gris-claro);
+    padding: 80px 0;
+}
+
+.admin-ingresar-propiedad h2 {
+    text-align: center;
+    font-size: 36px;
+    color: var(--negro);
+    margin-bottom: 40px;
+}
+
+.form-ingresar-propiedad {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--negro);
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--gris-oscuro);
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: var(--negro);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--dorado);
+    background-color: #fff;
+}
+
+/* Botón de Guardar */
+.form-submit {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.form-submit .btn-1 {
+    padding: 15px 40px;
+    font-size: 18px;
+}
+

@@ -15,7 +15,13 @@
         <!-- Propiedades guardadas -->
         <div class="perfil-guardadas">
             <h3>Propiedades Guardadas</h3>
-            <app-propiedades-card></app-propiedades-card>
+            <div *ngIf="favoritos.length === 0">
+                <p>No has guardado ninguna propiedad aún.</p>
+            </div>
+              
+            <div *ngIf="favoritos.length > 0">
+                <app-propiedades-card [propiedades]="favoritos"></app-propiedades-card>
+            </div>
         </div>
         
         <!-- Botón de cerrar sesión -->

@@ -1,60 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nobilis</title>
-    
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    
-
-</head>
-
-
-
-<body>
-
-  
     <app-navbar></app-navbar>
   
     <section class="perfil-usuario">
-        <div class="container">
-    
-            <h2 class="titulo-perfil">Mi Perfil</h2>
-    
-            <!-- Interés del usuario -->
-            <div class="perfil-interes">
-                <h3>Bienvenido</h3>
-                <!-- Aqui tenemos que poner el nombre del usuario -->
-                <p>Usuario </p>
+        <!-- Interés del usuario -->
+        <div class="perfil-interes">
+            <h3>Bienvenido</h3>
+            <p>{{ user?.nombre }}</p>
+        </div>
+        
+        <div class="perfil-interes" *ngIf="user?.intereses">
+            <h3>Interesado en:</h3>
+            <p>{{ user.intereses }}</p>
+        </div>
+        
+        <!-- Propiedades guardadas -->
+        <div class="perfil-guardadas">
+            <h3>Propiedades Guardadas</h3>
+            <div *ngIf="favoritos.length === 0">
+                <p>No has guardado ninguna propiedad aún.</p>
             </div>
-            <div class="perfil-interes">
-                <h3>Interesado en:</h3>
-                <!-- aqui tenemos que poner sus intereses ya puesto en el registro -->
-                <p>Mansiones, apartamentos</p>
+              
+            <div *ngIf="favoritos.length > 0">
+                <app-propiedades-card [propiedades]="favoritos"></app-propiedades-card>
             </div>
-    
-            <!-- Propiedades guardadas -->
-            <div class="perfil-guardadas">
-                <h3>Propiedades Guardadas</h3>
-    
-                <app-propiedades-card></app-propiedades-card>
-            </div>
-    
+        </div>
+        
+        <!-- Botón de cerrar sesión -->
+        <div class="cerrar-sesion">
+            <button class="btn-1" (click)="logout()">Cerrar sesión</button>
         </div>
     </section>
     
 
 
     <app-footer></app-footer>
-
-    
-    
-</body>
-
-
-
-</html>

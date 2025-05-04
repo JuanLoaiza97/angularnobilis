@@ -18,14 +18,17 @@
 <body>
     <header class="header">
         <div class="menu container">
-            <a href="index.html">Nobilis</a>
+            <a routerLink="/inicio">Nobilis</a>
 
             <nav class="navbar">
                 <ul>
-                    <li><a href="./propiedades.html">Propiedades</a></li>
-                    <li><a href="./nosotros.html">Nosotros</a></li>
-                    <li><a href="./contacto.html">Contacto</a></li>
-                    <li><a href="./perfil.html">Mi perfil</a></li>
+                    <li><a routerLink="/propiedades">Propiedades</a></li>
+                    <li><a routerLink="/nosotros">Nosotros</a></li>
+                    <li><a routerLink="/contacto">Contacto</a></li>
+                    <li *ngIf="isLogged(); else loginLink"><a routerLink="/miperfil">Mi perfil</a></li>
+                    <ng-template #loginLink>
+                        <li><a routerLink="/perfil">Iniciar sesión</a></li>
+                    </ng-template>
                 </ul>
 
             </nav>
@@ -45,7 +48,7 @@
         <div class="propiedades-content container">
             <h2>Propiedades más destacadas</h2>
             <app-propiedades-card></app-propiedades-card>
-            <a href="./propiedades.html" class="btn-1 brt-margin">Ver todas las propiedades</a>
+            <a routerLink="/propiedades" class="btn-1 brt-margin">Ver todas las propiedades</a>
         </div>
     </main>
 

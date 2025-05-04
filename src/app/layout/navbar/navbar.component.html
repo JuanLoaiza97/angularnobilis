@@ -7,7 +7,10 @@
           <li><a routerLink="/propiedades">Propiedades</a></li>
           <li><a routerLink="/nosotros">Nosotros</a></li>
           <li><a routerLink="/contacto">Contacto</a></li>
-          <li><a routerLink="/perfil">Mi perfil</a></li>
+          <li *ngIf="isLogged(); else loginLink"><a routerLink="/miperfil">Mi perfil</a></li>
+          <ng-template #loginLink>
+              <li><a routerLink="/perfil">Iniciar sesión</a></li>
+          </ng-template>
         </ul>
       </nav>
     </div>

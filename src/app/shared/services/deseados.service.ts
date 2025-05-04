@@ -8,25 +8,44 @@ export class DeseadosService {
 
   obtenerDeseados(userEmail: string): string[] {
     const data = localStorage.getItem(this.storageKey);
-    if (!data) return [];
-
-    const deseados = JSON.parse(data);
-    return deseados[userEmail] || [];
+    return data ? JSON.parse(data)[userEmail] || [] : [];
   }
 
-  agregarADeseados(userEmail: string, propiedadId: string) {
-    const data = localStorage.getItem(this.storageKey);
-    const deseados = data ? JSON.parse(data) : {};
-
-    if (!deseados[userEmail]) {
-      deseados[userEmail] = [];
+  agregarADeseados(userEmail: string, propiedadId: string): void {
+    const allDeseados = this.obtenerTodosDeseados();
+    if (!allDeseados[userEmail]) {
+      allDeseados[userEmail] = [];
     }
-
-    // Evitar duplicados
-    if (!deseados[userEmail].includes(propiedadId)) {
-      deseados[userEmail].push(propiedadId);
+    
+    if (!allDeseados[userEmail].includes(propiedadId)) {
+      allDeseados[userEmail].push(propiedadId);
+      this.guardarTodosDeseados(allDeseados);
     }
+  }
 
+  eliminarDeseado(userEmail: string, propiedadId: string): void {
+    const allDeseados = this.obtenerTodosDeseados();
+    if (allDeseados[userEmail]) {
+      allDeseados[userEmail] = allDeseados[userEmail].filter(id => id !== propiedadId);
+      this.guardarTodosDeseados(allDeseados);
+    }
+  }
+
+  toggleDeseado(userEmail: string, propiedadId: string): boolean {
+    const isDeseado = this.obtenerDeseados(userEmail).includes(propiedadId);
+    if (isDeseado) {
+      this.eliminarDeseado(userEmail, propiedadId);
+    } else {
+      this.agregarADeseados(userEmail, propiedadId);
+    }
+    return !isDeseado;
+  }
+
+  private obtenerTodosDeseados(): { [key: string]: string[] } {
+    return JSON.parse(localStorage.getItem(this.storageKey) || '{}');
+  }
+
+  private guardarTodosDeseados(deseados: { [key: string]: string[] }): void {
     localStorage.setItem(this.storageKey, JSON.stringify(deseados));
   }
 }

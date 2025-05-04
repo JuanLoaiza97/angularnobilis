@@ -2,52 +2,52 @@
 
 <form [formGroup]="registroForm" (ngSubmit)="onSubmit()" class="formulario-registro">
 
-    <!-- Datos personales -->
-    <h3 class="form-titulo">Información Personal</h3>
-    <div class="form-group">
-        <p>*</p>
-      <input type="text" placeholder="Nombre" formControlName="nombre">
-    </div>
-    <div class="form-group">
-        <p>*</p>
-      <input type="text" placeholder="Apellidos" formControlName="apellidos">
-    </div>
-    <div class="form-group">
-      <input type="tel" placeholder="Teléfono celular" formControlName="telefono">
-    </div>
-    <div class="form-group">
-      <input type="text" placeholder="País de residencia" formControlName="pais">
-    </div>
-    <div class="form-group">
-        <p>*</p>
-      <input type="email" placeholder="Correo electrónico" formControlName="email">
-    </div>
-    <div class="form-group">
-        <p>*</p>
-      <input type="password" placeholder="Contraseña" formControlName="password">
-    </div>
-    <div class="form-group">
-        <p>*</p>
-      <input type="password" placeholder="Confirma tu contraseña" formControlName="confirmPassword">
-    </div>
-  
-    <!-- Preferencias -->
-    <h3 class="form-titulo">Preferencias de Propiedad</h3>
-    <div class="form-group">
-      <select formControlName="tipoPropiedad">
-        <option value="">Tipo de propiedad que busca</option>
-        <option value="casa">Casa</option>
-        <option value="mansion">Mansión</option>
-        <option value="penthouse">Penthouse</option>
-        <option value="apartamento">Apartamento</option>
-        <option value="terreno">Terreno</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <input type="text" placeholder="Ubicación deseada del inmueble" formControlName="ubicacion" required>
-    </div>
-  
-    <button type="submit" class="btn-1">Registrarme</button>
+  <!-- Datos personales -->
+  <h3 class="form-titulo">Información Personal</h3>
+  <div class="form-group">
+    <input type="text" placeholder="Nombre *" formControlName="nombre">
+  </div>
+  <div class="form-group">
+    <input type="text" placeholder="Apellidos *" formControlName="apellidos">
+  </div>
+  <div class="form-group">
+    <input type="tel" placeholder="Teléfono celular *" formControlName="telefono">
+  </div>
+  <div class="form-group">
+    <input type="text" placeholder="País de residencia *" formControlName="pais">
+  </div>
+  <div class="form-group">
+    <input type="email" placeholder="Correo electrónico *" formControlName="email">
+  </div>
+  <div class="form-group">
+    <input type="password" placeholder="Contraseña *" formControlName="password">
+  </div>
+  <div class="form-group">
+    <input type="password" placeholder="Confirma tu contraseña *" formControlName="confirmPassword">
+  </div>
 
-  </form>
-  <app-footer></app-footer>
+  <!-- Preferencias -->
+  <h3 class="form-titulo">Preferencias de Propiedad</h3>
+  <div class="form-group">
+    <select formControlName="tipoPropiedad" placeholder="Tipo de propiedad" class="form-control" required>
+      <option value="" disabled selected>Seleccione *</option>
+      <option value="casa">Casa</option>
+      <option value="mansion">Mansión</option>
+      <option value="penthouse">Penthouse</option>
+      <option value="apartamento">Apartamento</option>
+      <option value="terreno">Terreno</option>
+    </select>
+    <div *ngIf="registroForm.get('tipoPropiedad')?.touched && registroForm.get('tipoPropiedad')?.invalid"
+      class="error-text">
+      Este campo es obligatorio.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" placeholder="Ubicación deseada del inmueble" formControlName="ubicacion" required>
+  </div>
+
+  <button type="submit" class="btn-1">Registrarme</button>
+
+</form>
+<app-footer></app-footer>

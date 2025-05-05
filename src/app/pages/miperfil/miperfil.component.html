@@ -10,10 +10,10 @@
         <div class="perfil-interes" *ngIf="user?.intereses">
             <h3>Interesado en:</h3>
             <p>{{ user.intereses }}</p>
-        </div>
+        </div> 
         
         <!-- Propiedades guardadas -->
-        <div class="perfil-guardadas">
+        <div class="perfil-guardadas container">
             <h3>Propiedades Guardadas</h3>
             <div *ngIf="favoritos.length === 0">
                 <h3>No has guardado ninguna propiedad aún.</h3>

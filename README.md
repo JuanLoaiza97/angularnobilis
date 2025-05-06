@@ -1,27 +1,58 @@
-# NobilisAngular
+# 🏠 Nobilis Angular - Gestión de Propiedades Inmobiliarias
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.9.
+Este proyecto es una aplicación web desarrollada en Angular para el sitio **Nobilis**, centrada en la visualización y gestión de propiedades inmobiliarias. En la rama `juanpa-angular` se han implementado funcionalidades clave como:
 
-## Development server
+- 🔐 Inicio de sesión utilizando Local Storage
+- 📝 Registro de nuevos usuarios
+- ❤️ Guardado de propiedades favoritas para usuarios registrados
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 🚀 Tecnologías utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 17+
+- TypeScript
+- HTML5 / CSS3
+- Local Storage API
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📦 Requisitos previos
 
-## Running unit tests
+Antes de ejecutar el proyecto asegúrate de tener instalado:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- [Node.js](https://nodejs.org/) (versión 16 o superior)
+- [Angular CLI](https://angular.io/cli) (`npm install -g @angular/cli`)
+- Git
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## ⚙️ Instrucciones para clonar y ejecutar el proyecto
 
-## Further help
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/JuanLoaiza97/angularnobilis.git
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+2. **Ingresar a la carpeta del proyecto**
+
+cd angularnobilis
+
+
+3. **Cambiar a la rama juanpa-angular**
+
+git checkout juanpa-angular
+
+
+4. **Instalar dependencias**
+
+npm install
+
+
+5. **Ejecutar el servidor de desarrollo**
+
+ng serve
+
+
+6. Abre tu navegador en http://localhost:4200

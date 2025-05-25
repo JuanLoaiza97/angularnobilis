@@ -42,8 +42,8 @@
   
   .favorite-btn.favorited {
     background-color: #ffebee;
-    border-color: #f44336;
-    color: #f44336;
+    border-color: #d4af37;
+    color: #d4af37;
   }
   
   .heart-icon {
@@ -51,7 +51,7 @@
   }
   
   .btn-2 {
-    background: #3f51b5;
+    background: #1e2133bd;
     color: white;
     padding: 8px 16px;
     border-radius: 4px;
@@ -60,5 +60,5 @@
   }
   
   .btn-2:hover {
-    background: #303f9f;
+    background: #1e2133;
   }

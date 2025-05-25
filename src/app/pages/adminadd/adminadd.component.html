@@ -1,115 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nobilis</title>
-    
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    
+<app-navbar-admin></app-navbar-admin>
+<section class="admin-ingresar-propiedad">
+  <div class="container">
+    <h2>Ingresar Nueva Propiedad</h2>
+    <form (ngSubmit)="guardarPropiedad(form)" #form="ngForm" class="form-ingresar-propiedad"> 
+      
+      <div class="form-group">
+        <label for="nombre">Nombre de la Propiedad</label>
+        <input type="text" id="nombre" name="titulo" [(ngModel)]="propiedad.titulo" #titulo="ngModel" required>
+        <div *ngIf="titulo.invalid && titulo.touched" class="error">El nombre es obligatorio.</div>
+      </div>
 
-</head>
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" name="descripcion" [(ngModel)]="propiedad.descripcion" #descripcion="ngModel" required></textarea>
+        <div *ngIf="descripcion.invalid && descripcion.touched" class="error">La descripción es obligatoria.</div>
+      </div>
 
+      <div class="form-group">
+        <label for="precio">Precio</label>
+        <input type="text" id="precio" name="precio" [(ngModel)]="propiedad.precio" #precio="ngModel" required>
+        <div *ngIf="precio.invalid && precio.touched" class="error">El precio es obligatorio.</div>
+      </div>
 
+      <div class="form-group">
+        <label for="ubicacion">Ubicación</label>
+        <input type="text" id="ubicacion" name="ubicacion" [(ngModel)]="propiedad.ubicacion" #ubicacion="ngModel" required>
+        <div *ngIf="ubicacion.invalid && ubicacion.touched" class="error">La ubicación es obligatoria.</div>
+      </div>
 
-<body>
-    <app-navbar-admin></app-navbar-admin>
+      <div class="form-group">
+        <label for="imagen">Imagen URL</label>
+        <input type="text" id="imagen" name="imagen" [(ngModel)]="propiedad.imagen" #imagen="ngModel" required>
+        <div *ngIf="imagen.invalid && imagen.touched" class="error">La imagen es obligatoria.</div>
+      </div>
 
-    <section class="admin-ingresar-propiedad">
-        <div class="container">
-            <h2>Ingresar Nueva Propiedad</h2>
-            <form action="#" method="POST" enctype="multipart/form-data" class="form-ingresar-propiedad">
-                
-                <!-- Nombre de propiedad -->
-                <div class="form-group">
-                    <label for="nombre">Nombre de la Propiedad</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-    
-                <!-- Tipo de propiedad -->
-                <div class="form-group">
-                    <label for="tipo">Tipo de Propiedad</label>
-                    <select id="tipo" name="tipo" required>
-                        <option value="">Seleccione</option>
-                        <option value="Casa">Casa</option>
-                        <option value="Penthouse">Penthouse</option>
-                        <option value="Mansión">Mansión</option>
-                        <option value="Apartamento">Apartamento</option>
-                        <option value="Terreno">Terreno</option>
-                    </select>
-                </div>
-    
-                <!-- Precio -->
-                <div class="form-group">
-                    <label for="precio">Precio (USD)</label>
-                    <input type="number" id="precio" name="precio" required>
-                </div>
-    
-                <!-- Imagen Principal -->
-                <div class="form-group">
-                    <label for="imagen-principal">Imagen Principal</label>
-                    <input type="file" id="imagen-principal" name="imagen-principal" accept="image/*" required>
-                </div>
-    
-                <!-- Ubicación -->
-                <div class="form-group">
-                    <label for="ubicacion">Ubicación</label>
-                    <input type="text" id="ubicacion" name="ubicacion" required>
-                </div>
-    
-                <!-- Imágenes Secundarias -->
-                <div class="form-group">
-                    <label for="imagenes-secundarias">Imágenes Secundarias</label>
-                    <input type="file" id="imagenes-secundarias" name="imagenes-secundarias[]" accept="image/*" multiple>
-                </div>
-    
-                <!-- Descripción -->
-                <div class="form-group">
-                    <label for="descripcion">Descripción de la Propiedad</label>
-                    <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
-                </div>
-    
-                <!-- Número de habitaciones -->
-                <div class="form-group">
-                    <label for="habitaciones">Número de Habitaciones</label>
-                    <input type="number" id="habitaciones" name="habitaciones" min="0" required>
-                </div>
-    
-                <!-- Número de baños -->
-                <div class="form-group">
-                    <label for="baños">Número de Baños</label>
-                    <input type="number" id="baños" name="baños" min="0" required>
-                </div>
-    
-                <!-- Número de parqueaderos -->
-                <div class="form-group">
-                    <label for="parqueaderos">Número de Parqueaderos</label>
-                    <input type="number" id="parqueaderos" name="parqueaderos" min="0" required>
-                </div>
-    
-                <!-- Área -->
-                <div class="form-group">
-                    <label for="area">Área (m²)</label>
-                    <input type="number" id="area" name="area" required>
-                </div>
-    
-                <!-- Botón de enviar -->
-                <div class="form-submit">
-                    <button type="submit" class="btn-1">Guardar Propiedad</button>
-                </div>
-            </form>
-        </div>
-    </section>
-    
-    
-    <app-footer-admin></app-footer-admin>
-    
-    
-</body>
-
-
-
-</html>
+      <div class="form-submit">
+        <button type="submit" class="btn-1">Guardar Propiedad</button>
+      </div>
+    </form>
+  </div>
+</section>

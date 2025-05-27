@@ -27,7 +27,8 @@ export class AdminaddComponent {
 
   guardarPropiedad(form: any) {
     if (form.valid) {
-      this.propiedadService.agregarPropiedad(this.propiedad);
+      console.log('ANTES DE GUARDAR:', this.propiedad);
+      this.propiedadService.agregarPropiedad({ ...this.propiedad });
       form.reset(); // Limpia el formulario
     } else {
       // Marca todos los campos como "tocados" para mostrar los errores

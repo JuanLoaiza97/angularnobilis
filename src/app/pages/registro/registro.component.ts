@@ -56,7 +56,8 @@ export class RegistroComponent {
       password: ['', [
         Validators.required,
         Validators.minLength(8),
-        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)
+        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)
+
       ]],
       confirmPassword: ['', Validators.required],
       tipoPropiedad: ['', Validators.required],
@@ -126,18 +127,25 @@ export class RegistroComponent {
     let errorMessage = '';
 
     if (errors?.['required']) {
+      console.log("Paso 1");
       errorMessage = 'Este campo es obligatorio';
     } else if (errors?.['email']) {
+      console.log("Paso 2");
       errorMessage = 'Debe ser un correo electrónico válido';
     } else if (errors?.['pattern']) {
+      console.log("Paso 3");
       if (controlName === 'telefono') {
+        console.log("Paso 4");
         errorMessage = 'Debe tener exactamente 10 dígitos';
       } else if (controlName === 'password') {
+        console.log("Paso 5");
         errorMessage = 'Debe contener al menos una mayúscula, una minúscula, un número y 8 caracteres';
       }
     } else if (errors?.['minlength']) {
+      console.log("Paso 6");
       errorMessage = `Debe tener al menos ${errors['minlength'].requiredLength} caracteres`;
     } else {
+      console.log("Paso 7");
       errorMessage = 'Valor inválido';
     }
 

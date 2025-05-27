@@ -1,80 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nobilis</title>
-    
-    
+    <title>Nobilis - Propiedades de Lujo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    
-    
 </head>
 
-
-
 <body>
+    <!-- Header con Navbar -->
     <header class="header">
         <div class="menu container">
-            <a routerLink="/inicio">Nobilis</a>
+            <a routerLink="/inicio" class="logo">Nobilis</a>
 
             <nav class="navbar">
                 <ul>
                     <li><a routerLink="/propiedades">Propiedades</a></li>
                     <li><a routerLink="/nosotros">Nosotros</a></li>
                     <li><a routerLink="/contacto">Contacto</a></li>
-                    <li *ngIf="isLogged(); else loginLink"><a routerLink="/miperfil">Mi perfil</a></li>
+                    <li *ngIf="isLogged(); else loginLink">
+                        <a routerLink="/miperfil">Mi perfil</a>
+                    </li>
                     <ng-template #loginLink>
                         <li><a routerLink="/perfil">Iniciar sesión</a></li>
                     </ng-template>
                 </ul>
-
             </nav>
-    
         </div>
 
         <div class="header-content container">
-
             <h1>Bienvenido a Nobilis</h1>
             <p>Propiedades de lujo</p>
-
         </div>
-       
     </header>
 
+    <!-- Sección Principal de Propiedades -->
     <main class="propiedades">
         <div class="propiedades-content container">
             <h2>Propiedades más destacadas</h2>
-            <app-propiedades-card></app-propiedades-card>
+            
+            <!-- Componente de propiedades con datos dinámicos -->
+            <app-propiedades-card [propiedades]="propiedades"></app-propiedades-card>
+            
             <a routerLink="/propiedades" class="btn-1 brt-margin">Ver todas las propiedades</a>
         </div>
     </main>
 
+    <!-- Sección Nosotros -->
     <app-nosotros-info></app-nosotros-info>
 
-   
+    <!-- Mensaje de Marketing -->
     <section class="mensaje">
         <div class="container">
-            <p class="mensaje-PP">Descubre la propiedad de tus sueños en un entorno donde el lujo, la exclusividad y el confort se combinan perfectamente. Cada una de nuestras casas está diseñada para ofrecerte no solo un hogar, sino un estilo de vida incomparable, donde la elegancia y la sofisticación se viven en cada rincón. Déjate envolver por espacios únicos que reflejan lo mejor en calidad, diseño y comodidad.</p>
+            <p class="mensaje-PP">
+                Descubre la propiedad de tus sueños en un entorno donde el lujo, 
+                la exclusividad y el confort se combinan perfectamente.
+            </p>
             <p class="mensaje-sec">Nobilis</p>
             <p class="mensaje-ter">Donde el lujo se convierte en hogar.</p>
         </div>
-
     </section>
 
-
+    <!-- Sección de Registro -->
     <app-registrarse></app-registrarse>
-    
 
-
-
-
-    <app-footer></app-footer>    
-    
+    <!-- Footer -->
+    <app-footer></app-footer>
 </body>
-
-
-
 </html>

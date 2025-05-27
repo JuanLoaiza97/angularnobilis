@@ -42,6 +42,10 @@ export class AuthService {
     this.isLogged.update(() => false)
     this.currentUser.set(null);;
   }
+
+  redirectToLogin(): void {
+    window.location.href = '/perfil';
+  }
   
   getCurrentUser() {
     return this.currentUser();

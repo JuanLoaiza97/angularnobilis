@@ -1,72 +1,101 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { DeseadosService } from '../../shared/services/deseados.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { CommonModule } from '@angular/common';
 import { Propiedad } from '../../shared/models/propiedad.model';
 import { RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
+import { PropiedadService } from '../../shared/services/propiedad.service';
 
 @Component({
   selector: 'app-propiedades-card',
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './propiedades-card.component.html',
-  styleUrl: './propiedades-card.component.css'
+  styleUrls: ['./propiedades-card.component.css']
 })
-export class PropiedadesCardComponent {
+export class PropiedadesCardComponent implements OnInit {
+  // Servicios
   authService = inject(AuthService);
   deseadosService = inject(DeseadosService);
+  propiedadService = inject(PropiedadService);
 
-  @Input() propiedades: Propiedad[] = [
-    {
-      id: '1',
-      titulo: 'Casa de lujo',
-      descripcion: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      imagen: 'assets/img/casa1.jpg',
-      precio: '$100,000',       
-      ubicacion: 'Bogotá'       
-    },
-    {
-      id: '2',
-      titulo: 'Mansión exclusiva',
-      descripcion: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      imagen: 'assets/img/casa2.jpg',
-      precio: '$80,000',        
-      ubicacion: 'Medellín'     
-    },
-    {
-      id: '3',
-      titulo: 'Apartamento moderno',
-      descripcion: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      imagen: 'assets/img/casa3.jpg',
-      precio: '$500,000',       
-      ubicacion: 'Cartagena'    
+  // Input/Output
+  @Input() propiedades: Propiedad[] = [];
+  @Input() showFavoriteButton: boolean = true;
+  
+  // Estados
+  loadingStates: { [key: string]: boolean } = {};
+
+  ngOnInit(): void {
+    // Carga inicial si no vienen por input
+    if (this.propiedades.length === 0) {
+      this.propiedades = this.propiedadService.obtenerPropiedades();
     }
-  ];
+  }
 
-  toggleFavorito(propiedadId: string): void {
+  async toggleFavorito(propiedadId: string): Promise<void> {
     const user = this.authService.getCurrentUser();
     
     if (!user) {
-      Swal.fire({
-        icon: 'warning',
-        title: 'Acceso requerido',
-        text: 'Debes iniciar sesión para guardar favoritos',
-        confirmButtonText: 'Entendido',
-        confirmButtonColor: '#3f51b5'
-      });
+      this.showLoginAlert();
       return;
     }
 
-    if (this.esFavorito(propiedadId)) {
-      this.deseadosService.eliminarDeseado(user.email, propiedadId);
-    } else {
-      this.deseadosService.agregarADeseados(user.email, propiedadId);
+    this.loadingStates[propiedadId] = true;
+    
+    try {
+      if (this.esFavorito(propiedadId)) {
+        await this.deseadosService.eliminarDeseado(user.email, propiedadId);
+        this.showToast('Removido de favoritos', 'success');
+      } else {
+        await this.deseadosService.agregarADeseados(user.email, propiedadId);
+        this.showToast('Agregado a favoritos', 'success');
+      }
+    } catch (error) {
+      this.showToast('Ocurrió un error', 'error');
+    } finally {
+      this.loadingStates[propiedadId] = false;
     }
   }
 
   esFavorito(propiedadId: string): boolean {
     const user = this.authService.getCurrentUser();
     return user ? this.deseadosService.obtenerDeseados(user.email).includes(propiedadId) : false;
+  }
+
+  private showLoginAlert(): void {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Acceso requerido',
+      text: 'Debes iniciar sesión para guardar favoritos',
+      confirmButtonText: 'Iniciar sesión',
+      confirmButtonColor: '#3f51b5',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.authService.redirectToLogin();
+      }
+    });
+  }
+
+  private showToast(message: string, icon: 'success' | 'error'): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      }
+    });
+
+    Toast.fire({
+      icon,
+      title: message
+    });
   }
 }

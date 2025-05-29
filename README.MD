@@ -5,6 +5,7 @@ Este proyecto es una aplicación web desarrollada en Angular para el sitio **Nob
 - 🔐 Inicio de sesión utilizando Local Storage
 - 📝 Registro de nuevos usuarios
 - ❤️ Guardado de propiedades favoritas para usuarios registrados
+- 🛠️ Módulo de administración restringido a usuarios con credenciales de administrador
 
 ---
 
@@ -14,6 +15,10 @@ Este proyecto es una aplicación web desarrollada en Angular para el sitio **Nob
 - TypeScript
 - HTML5 / CSS3
 - Local Storage API
+- Angular Forms (`FormsModule`)
+- Directivas estructurales (`*ngIf`, `*ngFor`)
+- Hooks de ciclo de vida (`ngOnInit`)
+- Ruteo con Angular Router
 
 ---
 
@@ -34,25 +39,59 @@ Antes de ejecutar el proyecto asegúrate de tener instalado:
    git clone https://github.com/JuanLoaiza97/angularnobilis.git
 
 
-
 2. **Ingresar a la carpeta del proyecto**
-
-cd angularnobilis
+   ```bash
+   cd angularnobilis
 
 
 3. **Cambiar a la rama juanpa-angular**
-
-git checkout juanpa-angular
+   ```bash
+   git checkout juanpa-angular
 
 
 4. **Instalar dependencias**
-
-npm install
+   ```bash
+   npm install
 
 
 5. **Ejecutar el servidor de desarrollo**
-
-ng serve
+   ```bash
+   ng serve
 
 
 6. Abre tu navegador en http://localhost:4200
+
+
+---
+
+
+👤 Acceso de administradores
+Actualmente, los únicos usuarios que pueden acceder a la pestaña de administración son:
+
+Usuario: admin | Contraseña: admin
+
+Usuario: admin2 | Contraseña: admin2
+
+Desde la vista de administrador, pueden:
+
+➕ Agregar nuevas propiedades disponibles para mostrar en la plataforma
+
+❌ Eliminar propiedades existentes según su criterio
+
+
+
+
+---
+
+
+
+📚 Dependencias destacadas
+uuid: Se utiliza para generar identificadores únicos (uuidv4) al registrar nuevas propiedades.
+
+FormsModule: Para trabajar con formularios.
+
+CommonModule: Para habilitar directivas como *ngIf y *ngFor.
+
+NgOnInit: Hook del ciclo de vida usado para inicializar componentes.
+
+RouterModule: Para gestionar rutas entre vistas.

@@ -77,3 +77,21 @@ Desde la vista de administrador, pueden:
 ➕ Agregar nuevas propiedades disponibles para mostrar en la plataforma
 
 ❌ Eliminar propiedades existentes según su criterio
+
+
+
+
+---
+
+
+
+📚 Dependencias destacadas
+uuid: Se utiliza para generar identificadores únicos (uuidv4) al registrar nuevas propiedades.
+
+FormsModule: Para trabajar con formularios.
+
+CommonModule: Para habilitar directivas como *ngIf y *ngFor.
+
+NgOnInit: Hook del ciclo de vida usado para inicializar componentes.
+
+RouterModule: Para gestionar rutas entre vistas.

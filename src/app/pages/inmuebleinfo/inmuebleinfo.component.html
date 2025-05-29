@@ -1,99 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nobilis</title>
-    
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    
-
-</head>
+<app-navbar></app-navbar>
 
 
 
-<body>
-
-        
-
-
-       
-
-    <app-navbar></app-navbar>
-    <!-- todo lo que le ponga "xxxxx" es porque debe cambiar cuando integremos back -->
-   
-    <section class="detalle-propiedad">
-        <div class="container">
-            <!-- Imagen Principal -->
-            <div class="imagen-principal">
-                <!-- xxxxxxxxx -->
-                <img img src="assets/img/casa1.jpg" alt="casa-luxiry">
-            </div>
-    
-            <!-- Precio y Ubicación -->
-            <div class="detalle-info">
-                <!-- xxxxxxxxx -->
-                <h2>$1,250,000 USD</h2>
-                <!-- xxxxxxxxx -->
-                <p class="ubicacion">Medellin, Colombia</p>
-            </div>
-    
-            <!-- Galería de Imágenes Secundarias -->
-             <!-- xxxxxxxxx aunque no estoy seguro de implementar o borrar -->
-            <!-- <div class="galeria-secundaria">
-                <img src="img/casa1.jpg" alt="Imagen secundaria">
-                <img src="img/casa2.jpg" alt="Imagen secundaria">
-                <img src="img/casa3.jpg" alt="Imagen secundaria">
-                <img src="img/casa4.jpg" alt="Imagen secundaria">
-            </div> -->
-    
-            <!-- Descripción -->
-            <div class="descripcion-propiedad">
-                <h3>Descripción</h3>
-                <p>
-                    <!-- xxxxxxxxx -->
-                    Esta magnífica mansión combina arquitectura contemporánea con toques clásicos en uno de los vecindarios más exclusivos del mundo. Amplios espacios llenos de luz natural, acabados de lujo y una distribución perfecta para el confort y la elegancia.
-                </p>
-            </div>
-    
-            <!-- Características -->
-            <div class="caracteristicas-propiedad">
-                <div class="caracteristica">
-                    <h4>Habitaciones</h4>
-                    <!-- xxxxxxxxx -->
-                    <p>6</p>
-                </div>
-                <div class="caracteristica">
-                    <h4>Baños</h4>
-                    <!-- xxxxxxxxx -->
-                    <p>7</p>
-                </div>
-                <div class="caracteristica">
-                    <h4>Parqueaderos</h4>
-                    <!-- xxxxxxxxx -->
-                    <p>4</p>
-                </div>
-                <div class="caracteristica">
-                    <h4>Área</h4>
-                    <!-- xxxxxxxxx -->
-                    <p>950 m²</p>
-                </div>
-            </div>
-    
+<section class="detalle-propiedad">
+    <div class="container">
+        <h1>Detalles de la Propiedad</h1>
+        <div *ngIf="propiedad">
+        <h2>{{ propiedad.titulo }}</h2>
+        <img [src]="propiedad.imagen" [alt]="propiedad.titulo">
+        <div class="detalle-info">
+            <p><strong>Descripción:</strong> {{ propiedad.descripcion }}</p>
+            <p><strong>Ubicación:</strong> {{ propiedad.ubicacion }}</p>
+            <p><strong>Precio:</strong> {{ propiedad.precio }}</p>
         </div>
-    </section>
-    
+        </div>
 
+        <div *ngIf="!propiedad">
+        <p>Propiedad no encontrada.</p>
+        </div>
+    </div>
+</section>
 
-    <app-footer></app-footer>
-
-    
-    
-</body>
-
-
-
-</html>
+<app-footer></app-footer>

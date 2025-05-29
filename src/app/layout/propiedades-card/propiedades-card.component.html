@@ -5,7 +5,7 @@
     <p>{{ propiedad.descripcion || 'Descripción no disponible' }}</p>
     
     <div class="property-actions">
-      <a routerLink="/inmuebleinfo" class="btn-2">Más Información</a>
+      <a [routerLink]="['/inmuebleinfo', propiedad.id]" class="btn-2">Más Información</a>
       <button 
         class="favorite-btn"
         (click)="toggleFavorito(propiedad.id)"

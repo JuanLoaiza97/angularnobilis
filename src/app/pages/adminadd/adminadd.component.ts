@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PropiedadService } from '../../shared/services/propiedad.service';
 import { Router, RouterLink } from '@angular/router';
+import { v4 as uuidv4 } from 'uuid'; 
 
 @Component({
   selector: 'app-adminadd',
@@ -27,6 +28,10 @@ export class AdminaddComponent {
 
   guardarPropiedad(form: any) {
     if (form.valid) {
+      const nuevaPropiedad = {
+        ...this.propiedad, id:uuidv4()
+      };
+
       console.log('ANTES DE GUARDAR:', this.propiedad);
       this.propiedadService.agregarPropiedad({ ...this.propiedad });
       form.reset(); // Limpia el formulario

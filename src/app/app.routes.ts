@@ -23,7 +23,7 @@ export const routes: Routes = [
   { path: 'miperfil', component: MiperfilComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'adminadd', component: AdminaddComponent },
-  { path: 'inmuebleinfo', component: InmuebleinfoComponent },
+  { path: 'inmuebleinfo/:id', component: InmuebleinfoComponent },
 ];
 
   

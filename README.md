@@ -5,6 +5,7 @@ Este proyecto es una aplicación web desarrollada en Angular para el sitio **Nob
 - 🔐 Inicio de sesión utilizando Local Storage
 - 📝 Registro de nuevos usuarios
 - ❤️ Guardado de propiedades favoritas para usuarios registrados
+- 🛠️ Acceso exclusivo para administradores con control total sobre las propiedades
 
 ---
 
@@ -34,25 +35,41 @@ Antes de ejecutar el proyecto asegúrate de tener instalado:
    git clone https://github.com/JuanLoaiza97/angularnobilis.git
 
 
-
 2. **Ingresar a la carpeta del proyecto**
-
-cd angularnobilis
+   ```bash
+   cd angularnobilis
 
 
 3. **Cambiar a la rama juanpa-angular**
-
-git checkout juanpa-angular
+   ```bash
+   git checkout juanpa-angular
 
 
 4. **Instalar dependencias**
-
-npm install
+   ```bash
+   npm install
 
 
 5. **Ejecutar el servidor de desarrollo**
-
-ng serve
+   ```bash
+   ng serve
 
 
 6. Abre tu navegador en http://localhost:4200
+
+
+---
+
+
+👤 Acceso de administradores
+Actualmente, los únicos usuarios que pueden acceder a la pestaña de administración son:
+
+Usuario: admin | Contraseña: admin
+
+Usuario: admin2 | Contraseña: admin2
+
+Desde la vista de administrador, pueden:
+
+➕ Agregar nuevas propiedades disponibles para mostrar en la plataforma
+
+❌ Eliminar propiedades existentes según su criterio

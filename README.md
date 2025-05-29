@@ -5,7 +5,7 @@ Este proyecto es una aplicación web desarrollada en Angular para el sitio **Nob
 - 🔐 Inicio de sesión utilizando Local Storage
 - 📝 Registro de nuevos usuarios
 - ❤️ Guardado de propiedades favoritas para usuarios registrados
-- 🛠️ Acceso exclusivo para administradores con control total sobre las propiedades
+- 🛠️ Módulo de administración restringido a usuarios con credenciales de administrador
 
 ---
 
@@ -15,6 +15,10 @@ Este proyecto es una aplicación web desarrollada en Angular para el sitio **Nob
 - TypeScript
 - HTML5 / CSS3
 - Local Storage API
+- Angular Forms (`FormsModule`)
+- Directivas estructurales (`*ngIf`, `*ngFor`)
+- Hooks de ciclo de vida (`ngOnInit`)
+- Ruteo con Angular Router
 
 ---
 

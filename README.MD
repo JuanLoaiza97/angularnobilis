@@ -44,9 +44,9 @@ Antes de ejecutar el proyecto asegúrate de tener instalado:
    cd angularnobilis
 
 
-3. **Cambiar a la rama juanpa-angular**
+3. **Cambiar a la rama rama-juanda-angular**
    ```bash
-   git checkout juanpa-angular
+   git checkout rama-juanda-angular
 
 
 4. **Instalar dependencias**

@@ -1,56 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nobilis</title>
-    
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    
- 
-</head>
+<app-navbar></app-navbar>
 
+<section class="login">
+  <div class="container">
+    <h2>Inicia Sesión como administrador</h2>
 
+    <form class="formulario-login" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="email" placeholder="Correo electrónico" [(ngModel)]="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required>
+      </div>
+      <button type="submit" class="btn-1">Iniciar Sesión</button>
+    </form>
+  </div>
+  
+</section>
 
-<body>
-    <app-navbar></app-navbar>
-
-    <section class="login">
-        <div class="container">
-            <h2>Inicia Sesión como administrador</h2>
-         
-    
-            <form class="formulario-login">
-                <div class="form-group">
-                    <input type="email" placeholder="Correo electrónico" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Contraseña" required>
-                </div>
-                <button type="submit" class="btn-1">Iniciar Sesión</button>
-            </form>
-    
-            <div class="login-links">
-                <a href="#" class="login-link">¿Olvidaste tu contraseña?</a>
-
-            </div>
-        </div>
-    </section>
-    
-
-
-    
-
-
-
-    <app-footer></app-footer>
-    
-    
-</body>
-
-
-
-</html>
+<app-footer></app-footer>

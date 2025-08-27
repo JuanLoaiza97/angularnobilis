@@ -26,12 +26,4 @@ export const routes: Routes = [
   { path: 'inmuebleinfo', component: InmuebleinfoComponent },
 ];
 
-
-
-
-// @NgModule({
-//     imports: [RouterModule.forRoot(routes)],
-//     exports: [RouterModule]
-//   })
-//   export class AppRoutingModule {}
   

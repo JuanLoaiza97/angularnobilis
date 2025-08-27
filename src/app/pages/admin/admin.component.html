@@ -1,78 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nobilis</title>
-    
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    
-    
-</head>
+<app-navbar-admin></app-navbar-admin>
 
+<section class="admin-panel">
+  <div class="container">
+    <h2>Panel de Administración</h2>
 
+    <div class="admin-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Ubicación</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let propiedad of propiedades">
+            <td>{{ propiedad.titulo }}</td>
+            <td>{{ propiedad.ubicacion }}</td>
+            <td>{{ propiedad.precio }}</td>
+            <td>
+              <button (click)="eliminar(propiedad.id)" class="btn-delete">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-<body>
-    <app-navbar-admin></app-navbar-admin>
+    <div class="admin-actions">
+      <a routerLink="/adminadd" class="btn-1">Agregar Nueva Propiedad</a>
+    </div>
+  </div>
+</section>
 
-    <section class="admin-panel">
-        <div class="container">
-            <h2>Panel de Administración</h2>
-    
-            <!-- Tabla de propiedades -->
-            <div class="admin-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre de Propiedad</th>
-                            <th>Ubicación</th>
-                            <th>Precio</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Mansión Los Olivos</td>
-                            <td>Miami, FL</td>
-                            <td>$5,200,000</td>
-                            <td>
-                                <a href="#" class="btn-edit">Editar</a>
-                                <a href="#" class="btn-delete">Eliminar</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Penthouse Riviera</td>
-                            <td>Cancún, MX</td>
-                            <td>$2,800,000</td>
-                            <td>
-                                <a href="#" class="btn-edit">Editar</a>
-                                <a href="#" class="btn-delete">Eliminar</a>
-                            </td>
-                        </tr>
-                        <!-- Más filas dinámicamente -->
-                    </tbody>
-                </table>
-            </div>
-    
-            <!-- Botón para agregar propiedad -->
-            <div class="admin-actions">
-                <a href="admin-add.html" class="btn-1">Agregar Nueva Propiedad</a>
-            </div>
-    
-        </div>
-    </section>
-    
-
-
-
-    <app-footer-admin></app-footer-admin>
-    
-    
-</body>
-
-
-
-</html>
+<app-footer-admin></app-footer-admin>

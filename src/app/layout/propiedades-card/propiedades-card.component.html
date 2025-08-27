@@ -1,20 +1,20 @@
 <div class="propi-group">
-    <div class="propi-1">
-        <img src="assets/img/casa1.jpg" alt="casa-luxiry">
-        <h3>lorem</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-        <a href="./inmueble-info.html" class="btn-2">Más Información</a>
+  <div *ngFor="let propiedad of propiedades" class="propi-1">
+    <img [src]="propiedad.imagen || 'assets/img/default.jpg'" [alt]="propiedad.titulo || 'Propiedad'">
+    <h3>{{ propiedad.titulo || 'Título no disponible' }}</h3>
+    <p>{{ propiedad.descripcion || 'Descripción no disponible' }}</p>
+    
+    <div class="property-actions">
+      <a routerLink="/inmuebleinfo" class="btn-2">Más Información</a>
+      <button 
+        class="favorite-btn"
+        (click)="toggleFavorito(propiedad.id)"
+        [class.favorited]="esFavorito(propiedad.id)"
+        [title]="esFavorito(propiedad.id) ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+      >
+        <span class="heart-icon">{{ esFavorito(propiedad.id) ? '💛' : '♡' }}</span>
+        {{ esFavorito(propiedad.id) ? 'Quitar' : 'Favorito' }}
+      </button>
     </div>
-    <div class="propi-1">
-        <img src="assets/img/casa2.jpg" alt="casa-luxiry">
-        <h3>lorem</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-        <a href="#" class="btn-2">Más Información</a>
-    </div>
-    <div class="propi-1">
-        <img src="assets/img/casa3.jpg" alt="casa-luxury">
-        <h3>lorem</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <a href="#" class="btn-2">Más Información</a>
-    </div>
+  </div>
 </div>
